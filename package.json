@@ -4,7 +4,7 @@
   "description": "Crearemos una aplicación de Enlaces, que sera un CRUD de nodejs, más un Login y Registro utilizando Mysql, ademas de proteger nuestras rutas del servidor y estilizar nuestra aplicación con CSS, Bootstrap4, y Handlebars.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
