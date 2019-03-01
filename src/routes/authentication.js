@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const passport = require('passport');
-const { isLoggedIn } = require('../lib/auth');
+//const { isLoggedIn } = require('../lib/auth');
 
 // SIGNUP
 router.get('/signup', (req, res) => {

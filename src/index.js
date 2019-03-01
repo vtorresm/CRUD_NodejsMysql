@@ -14,7 +14,7 @@ const app = express();
 require('./lib/passport');
 
 //Settings
-app.set('port',process.env.PORT || 4000);
+app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
@@ -35,7 +35,7 @@ app.use(session({
 }));
 app.use(flash());
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -43,14 +43,16 @@ app.use(passport.session());
 
 //Global Variables
 app.use((req, res, next) => {
+    app.locals.message = req.flash('message');
     app.locals.success = req.flash('success');
+    //app.locals.user = req.user;
     next();
 });
 
 //Routes
 app.use(require('./routes/Index'));
 app.use(require('./routes/authentication'));
-app.use('/links',require('./routes/links'));
+app.use('/links', require('./routes/links'));
 
 //Public
 
